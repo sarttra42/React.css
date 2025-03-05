@@ -7,3 +7,11 @@
     text-align: center;
     align-content: center;
 }
+
+.expense{
+    color: red;
+}
+
+.income{
+    color: green;
+}
