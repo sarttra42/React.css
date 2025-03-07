@@ -6,7 +6,7 @@ import { useEffect } from "react";
 const Formcomponent = (props) =>{
     console.log("Renser Form Component")
     const [title,setTitle] = useState('')
-    const [bath,setBath] = useState('0')  //การใช้งาน State เป็นการสร้างตัวแปรรอรับค่าที่เปลี่ยนแปลงได้
+    const [bath,setBath] = useState(0)  //การใช้งาน State เป็นการสร้างตัวแปรรอรับค่าที่เปลี่ยนแปลงได้
     const [formValid,setFormValid] = useState(false)
 
     const inputTitle = (event) => setTitle(event.target.value)
@@ -26,8 +26,9 @@ const Formcomponent = (props) =>{
     }
 
     useEffect(()=>{
-        
-    },[bath])
+        const checkData = title.trim().length>0 && bath!== 0;
+        setFormValid(checkData)
+    },[title,bath])
     return(
         <div>
             <form action="#" onSubmit={saveItem}>
@@ -40,7 +41,7 @@ const Formcomponent = (props) =>{
                 <input type="number" max="99999" placeholder="(+ รายรับ - รายจ่าย)" onChange={inputbath} value={bath}/>
                 </div>
                 <div>
-                    <button type="submit" className="btn-button">เพิ่มข้อมูล</button>
+                    <button type="submit" className="btn-button" disabled={!formValid}>เพิ่มข้อมูล</button>
                 </div>
             </form>
         </div>

@@ -18,8 +18,8 @@ input{
     width: 75%
 }
 .btn-button{
-    background-color: purple;
-    color: white;
+    /* background-color: purple;
+    color: white; */
     cursor: pointer;
     display: block;
     margin: 10px 0 30px;
