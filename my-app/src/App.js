@@ -3,6 +3,7 @@ import {useState} from 'react'
 import Content from "./components/Content"
 // import { v4 as uuidv4 } from 'uuid';
 import Formcomponent from "./components/Formcomponent"
+import DataContext from './data/DataContext';
 
 function App() {
   // const data = [
@@ -20,7 +21,8 @@ function App() {
     console.log("ข้อมูลที่ส่งมาจาก Form",newItem)
   }
   return (
-    <div className="container">
+    <DataContext.Provider value={"Sarttra"}>
+      <div className="container">
       <div className="body">
         <h2>ยินดีต้อนรับเข้าสู่โปรแกรมบัญชีรายรับ-รายจ่าย</h2>
         <Formcomponent onAddItem={onAddNewItem}/>
@@ -29,6 +31,7 @@ function App() {
         })}
       </div>
     </div>
+    </DataContext.Provider>
   );
 }
 
